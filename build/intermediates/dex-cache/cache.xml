@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="E:\Click22\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-games\7.3.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="3b4ff5c39dace8f3b4ab4cab8191785547a0815f">
+        <dex dex="E:\Click22\app\build\intermediates\pre-dexed\debug\classes-4c0958be9e28578b1af1f63bc97e6fd5b7c50bd6.jar" />
+    </item>
+    <item
+        jar="E:\Click22\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.1.1\jars\libs\internal_impl-22.1.1.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="9e070ad32b2700b0343e8e0cccc437733d91ba3a">
+        <dex dex="E:\Click22\app\build\intermediates\pre-dexed\debug\internal_impl-22.1.1-7935e7fbdaf0de4cea3e433baef83d18572d0399.jar" />
+    </item>
+    <item
+        jar="E:\Click22\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-maps\7.3.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="fe3e0c6de7cceed888b277487238b6af9a1cc299">
+        <dex dex="E:\Click22\app\build\intermediates\pre-dexed\debug\classes-d8d70634ac5e532278df7667a14172da0582c2e7.jar" />
+    </item>
+    <item
+        jar="E:\Click22\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appindexing\7.3.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="e35fae1b377c23aa5fd2d309a190c2d0f73d54ec">
+        <dex dex="E:\Click22\app\build\intermediates\pre-dexed\debug\classes-af563b3266419be723ce43a8730cad6745dd45c0.jar" />
+    </item>
+    <item
+        jar="E:\Click22\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-wallet\7.3.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="6046e5cdaf799120b7c56a5a061d80e8854c4d34">
+        <dex dex="E:\Click22\app\build\intermediates\pre-dexed\debug\classes-459ffba46db693a3aca8a19310d45623655e6643.jar" />
+    </item>
+    <item
+        jar="E:\Click22\mail\mail.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="428e267abff0d10802ccde86b915da2c20471160">
+        <dex dex="E:\Click22\app\build\intermediates\pre-dexed\debug\mail-3aff3f2b556cf62ec4d6ce2015d026711bbc12c8.jar" />
+    </item>
+    <item
+        jar="E:\Click22\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-panorama\7.3.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="565a01f90f1529f73362707c4c185d0623a68782">
+        <dex dex="E:\Click22\app\build\intermediates\pre-dexed\debug\classes-ae69c91d03d7c3ca0cca42ef877821ad6a1211fe.jar" />
+    </item>
+    <item
+        jar="E:\Click22\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-drive\7.3.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="a0ce76dfaccbfbd6c551ed2174280aaabe60fe47">
+        <dex dex="E:\Click22\app\build\intermediates\pre-dexed\debug\classes-6c4452c9269de42bf6cce33633529e23d6bb63ec.jar" />
+    </item>
+    <item
+        jar="E:\Click22\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\7.3.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="f2f7ec211ce4d244ee97a57523eeb4526dc3cf8a">
+        <dex dex="E:\Click22\app\build\intermediates\pre-dexed\debug\classes-b7f4108203eea2e683c5e992d7599c38d3dea127.jar" />
+    </item>
+    <item
+        jar="E:\Click22\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.1.1\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="c95ba8152923e4872e86a82cfcba9a51c0214328">
+        <dex dex="E:\Click22\app\build\intermediates\pre-dexed\debug\classes-479c57a6694e9a0ea81b8df2a11ce8c67ef7fb79.jar" />
+    </item>
+    <item
+        jar="E:\Click22\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-cast\7.3.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="e5b9f5b0aa8dee788beb63d23832cb29ce771343">
+        <dex dex="E:\Click22\app\build\intermediates\pre-dexed\debug\classes-42b3c948d5ccee9fdfaa00cace08816df015b43f.jar" />
+    </item>
+    <item
+        jar="E:\Click22\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-plus\7.3.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="59652857a825fff0de62166fca1bc9553cc01abb">
+        <dex dex="E:\Click22\app\build\intermediates\pre-dexed\debug\classes-c68c241b6cd75538283ddefa8ad1e160eae01a3b.jar" />
+    </item>
+    <item
+        jar="E:\Click22\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-analytics\7.3.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="9c9dea9e85aceb09d95df5e6f7bc8a43fc286068">
+        <dex dex="E:\Click22\app\build\intermediates\pre-dexed\debug\classes-5bbd9b631cc470173e7a1f8fa08eabd7eb5ff590.jar" />
+    </item>
+    <item
+        jar="E:\Click22\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-safetynet\7.3.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="0708ef60917bf94913fe9ef972a655b99462dca7">
+        <dex dex="E:\Click22\app\build\intermediates\pre-dexed\debug\classes-4f1bda332ebe12392452f8dba3de8611ade007b6.jar" />
+    </item>
+    <item
+        jar="E:\Click22\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-fitness\7.3.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="4f4fe3c23776540625f3c2844152a7510fddf9f1">
+        <dex dex="E:\Click22\app\build\intermediates\pre-dexed\debug\classes-0d49afcff3f25cfddf636ef5f4944e44609f4d97.jar" />
+    </item>
+    <item
+        jar="E:\Click22\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-identity\7.3.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="b48d5c51a9a9e329005106b4667f54948de4d4d8">
+        <dex dex="E:\Click22\app\build\intermediates\pre-dexed\debug\classes-1c9128f22c5670a438d8c1e25af3156839460628.jar" />
+    </item>
+    <item
+        jar="E:\Click22\activation\activation.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="d1257cbff6faa44c1f325ae0d9413522d4644383">
+        <dex dex="E:\Click22\app\build\intermediates\pre-dexed\debug\activation-88af5fc353880ed71a98b2e6ff9a7537ea4e536c.jar" />
+    </item>
+    <item
+        jar="E:\Click22\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-nearby\7.3.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="5ea948d825957be6c4358c48422bee60eef2d487">
+        <dex dex="E:\Click22\app\build\intermediates\pre-dexed\debug\classes-27f5354a5344214c9ead838114d8fe0b27382b23.jar" />
+    </item>
+    <item
+        jar="E:\Click22\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-wearable\7.3.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="e5bf453b070c1e39297986144960e45afa0fdfad">
+        <dex dex="E:\Click22\app\build\intermediates\pre-dexed\debug\classes-cb39b1472787f66f1cb8f5e6dbfe99d708f2e4ff.jar" />
+    </item>
+    <item
+        jar="E:\Click22\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-location\7.3.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="b2c07cdb814fe988ad05f7b4d767a841514a5991">
+        <dex dex="E:\Click22\app\build\intermediates\pre-dexed\debug\classes-16dcd5fef4539b76dc87c9bedaa96b29e8a88369.jar" />
+    </item>
+    <item
+        jar="E:\Click22\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appstate\7.3.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="0180d031a7b54dabb93b4af3869468b55dc938bd">
+        <dex dex="E:\Click22\app\build\intermediates\pre-dexed\debug\classes-3f4db6aa5f4e9d6a7a9c47d456849f08308eb94a.jar" />
+    </item>
+    <item
+        jar="E:\Click22\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-ads\7.3.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="3988694bf9d8186ff97ad5cdfa4ed88b5010fe08">
+        <dex dex="E:\Click22\app\build\intermediates\pre-dexed\debug\classes-b2816911bbf72ad0005adb81360eba5395083d45.jar" />
+    </item>
+    <item
+        jar="E:\Click22\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\22.1.1\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="a3ff3c506644c820eb2bdf06e8339f72be578551">
+        <dex dex="E:\Click22\app\build\intermediates\pre-dexed\debug\classes-f5bd2b2937600ea708089ed734e2051822c1a522.jar" />
+    </item>
+    <item
+        jar="E:\Click22\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appinvite\7.3.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="bb36004beb02b69562cbec9aa7d6a3cf16bf5d1b">
+        <dex dex="E:\Click22\app\build\intermediates\pre-dexed\debug\classes-7ffa074c22179549899a7cab7b96f194d83a573d.jar" />
+    </item>
+    <item
+        jar="E:\Click22\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-gcm\7.3.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="7215ac1f2fca947b9415a6ee2a1bf991364aab24">
+        <dex dex="E:\Click22\app\build\intermediates\pre-dexed\debug\classes-8170863e3d4fcfaefe250d355adee56ad106959f.jar" />
+    </item>
+    <item
+        jar="C:\Users\anupama_sikchi\AppData\Local\Android\sdk3\extras\android\m2repository\com\android\support\support-annotations\22.1.1\support-annotations-22.1.1.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="01d051a6bfb1218b1db2d3a5af0480ac2c25c42a">
+        <dex dex="E:\Click22\app\build\intermediates\pre-dexed\debug\support-annotations-22.1.1-1a8e39e92dbfaa4ce6d8e948107b34acf90ba76a.jar" />
+    </item>
+    <item
+        jar="E:\Click22\additionnal\additionnal.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="bd9e8dc422bb8c8405359947fe9f4282b49f57f4">
+        <dex dex="E:\Click22\app\build\intermediates\pre-dexed\debug\additionnal-ec337e7c5244d718a0443a4f1dabcc88ec7dd417.jar" />
+    </item>
+
+</items>

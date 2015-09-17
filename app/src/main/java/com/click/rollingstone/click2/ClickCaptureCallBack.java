@@ -21,7 +21,7 @@ public class ClickCaptureCallBack extends CameraCaptureSession.CaptureCallback {
     @Override
     public void onCaptureCompleted(CameraCaptureSession session, CaptureRequest request, TotalCaptureResult result) {
         super.onCaptureCompleted(session, request, result);
-        Log.d("Click2","capture is completed");
+        Click2Logging.getInstance().write("CameraDevice: capture complete");
         if(device!=null){
             device.close();
         }

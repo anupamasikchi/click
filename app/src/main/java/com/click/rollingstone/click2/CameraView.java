@@ -28,29 +28,25 @@ import android.view.View.OnClickListener;
 
 public class CameraView extends Activity implements SurfaceHolder.Callback,
         OnClickListener {
-    private static final String TAG = "CameraTest";
-    Camera mCamera;
-    boolean mPreviewRunning = false;
-    String filename;
+
+    private Camera mCamera;
+    private boolean mPreviewRunning = false;
+    private String filename;
 
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
-        Log.e(TAG, "onCreate");
+        Click2Logging.getInstance().write("CameraView: On create called");
 
         filename = "";
         setContentView(R.layout.cameraview);
 
         mSurfaceView = (SurfaceView) findViewById(R.id.surface_camera);
 
-        // mSurfaceView.setOnClickListener(this);
-
         mSurfaceHolder = mSurfaceView.getHolder();
         mSurfaceHolder.addCallback(this);
 
         mSurfaceHolder.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
         mSurfaceHolder.setKeepScreenOn(true);
-
-        // mSurfaceHolder.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
 
     }
 
@@ -60,7 +56,7 @@ public class CameraView extends Activity implements SurfaceHolder.Callback,
     }
 
     protected void onResume() {
-        Log.e(TAG, "onResume");
+        Click2Logging.getInstance().write("CameraView: On Resume called");
         super.onResume();
     }
 
@@ -69,14 +65,14 @@ public class CameraView extends Activity implements SurfaceHolder.Callback,
     }
 
     protected void onStop() {
-        Log.e(TAG, "onStop");
+        Click2Logging.getInstance().write("CameraView: On Stop called");
         super.onStop();
     }
 
     public void surfaceChanged(SurfaceHolder holder, int format, int w, int h) {
-        Log.e(TAG, "surfaceChanged");
 
-        // XXX stopPreview() will crash if preview is not running
+        Click2Logging.getInstance().write("CameraView: SurfaceChanged called");
+
         if(mPreviewRunning) {
             mCamera.stopPreview();
         }
@@ -92,11 +88,7 @@ public class CameraView extends Activity implements SurfaceHolder.Callback,
     }
 
     public void surfaceDestroyed(SurfaceHolder holder) {
-        Log.e(TAG, "surfaceDestroyed");
-        // mCamera.stopPreview();
-        // mPreviewRunning = false;
-        // mCamera.release();
-
+        Click2Logging.getInstance().write("CameraView: SurfaceDestroyed called");
         stopCamera();
     }
 
@@ -108,9 +100,13 @@ public class CameraView extends Activity implements SurfaceHolder.Callback,
     }
 
     public void surfaceCreated(SurfaceHolder holder) {
-        Log.e(TAG, "surfaceCreated");
+        Click2Logging.getInstance().write("CameraView: SurfaceCreated called");
+
+        Click2Logging.getInstance().write("CameraView: Getting frontfacing camera id");
 
         int i = findFrontFacingCamera();
+
+        Click2Logging.getInstance().write("CameraView: Frontfacing camera id is - "+i);
 
         if(i > 0) ;
         while(true) {
@@ -123,30 +119,26 @@ public class CameraView extends Activity implements SurfaceHolder.Callback,
                     stopCamera();
                     return;
                 }
-            } catch(RuntimeException localRuntimeException) {
-                localRuntimeException.printStackTrace();
+            } catch(Exception ex) {
+                Click2Logging.getInstance().write("Error while opening camera - "+ex.getMessage());
                 if(this.mCamera == null) continue;
                 stopCamera();
                 this.mCamera = Camera.open(i);
                 try {
                     this.mCamera.setPreviewDisplay(holder);
-                    Log.d("HiddenEye Plus", "Camera open RE");
                     return;
                 } catch(IOException localIOException1) {
                     stopCamera();
-                    localIOException1.printStackTrace();
+                    Click2Logging.getInstance().write("Error while opening camera - " + localIOException1.getMessage());
                     return;
                 }
 
-            } catch(Exception localException) {
-                if(this.mCamera != null) stopCamera();
-                localException.printStackTrace();
-                return;
             }
         }
     }
 
     private void stopCamera() {
+        Click2Logging.getInstance().write("CameraView: Stopping camera");
         if(this.mCamera != null) {
 
             this.mCamera.stopPreview();
@@ -155,6 +147,7 @@ public class CameraView extends Activity implements SurfaceHolder.Callback,
 
             this.mPreviewRunning = false;
         }
+        Click2Logging.getInstance().write("CameraView: Camera Stopped");
     }
 
     private int findFrontFacingCamera() {
@@ -171,9 +164,8 @@ public class CameraView extends Activity implements SurfaceHolder.Callback,
 
         public void onPictureTaken(byte[] data, Camera camera) {
             if(data != null) {
-                // Intent mIntent = new Intent();
-                // mIntent.putExtra("image",imageData);
 
+                Click2Logging.getInstance().write("CameraView: Picture callback, Will save picture now");
                 mCamera.stopPreview();
                 mPreviewRunning = false;
                 mCamera.release();
@@ -205,14 +197,7 @@ public class CameraView extends Activity implements SurfaceHolder.Callback,
                     resizedBitmap.compress(Bitmap.CompressFormat.JPEG, 40,
                             bytes);
 
-                    // you can create a new file name "test.jpg" in sdcard
-                    // folder.
-
-                    String file_path = Environment.getExternalStorageDirectory().getAbsolutePath() +
-                            "/Click";
-                    File dir = new File(file_path);
-                    if(!dir.exists())
-                        dir.mkdirs();
+                    File dir = new File(Click2Logging.getInstance().appPath);
 
                     SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd_HHmmss");
                     String currentDateandTime = sdf.format(new Date());
@@ -228,9 +213,9 @@ public class CameraView extends Activity implements SurfaceHolder.Callback,
 
                     // remember close de FileOutput
                     fo.close();
-
+                    Click2Logging.getInstance().write("CameraView: Picture callback, Picture Saved");
                 } catch(Exception e) {
-                    e.printStackTrace();
+                    Click2Logging.getInstance().write("CameraView: Picture callback, Error while saving picture - "+e.getMessage());
                 }
                 SendEmail();
                 // StoreByteImage(mContext, imageData, 50,"ImageName");
@@ -242,6 +227,8 @@ public class CameraView extends Activity implements SurfaceHolder.Callback,
     };
 
     public void SendEmail() {
+        Click2Logging.getInstance().write("CameraView: Picture Saved, Creating email send task");
+
         if (filename.equals("")) return;
 
         File imagefile = new File(filename);
@@ -261,12 +248,11 @@ public class CameraView extends Activity implements SurfaceHolder.Callback,
         //byte[] b = new byte[1];
 
         try {
-           String emailId= getEmail(getApplicationContext());
-            SendMailTask sm = new SendMailTask(emailId, "Ye photo hai meri", "Ayush is a brat", b);
+            String emailId= getEmail(getApplicationContext());
+            SendMailTask sm = new SendMailTask(emailId, "We got him!", "Click captured an intrusion", b);
             sm.execute();
         } catch (Exception e) {
-            Log.d(getString(R.string.app_name), "Dhara feels like hitting someone.");
-            e.printStackTrace();
+            Click2Logging.getInstance().write("Error while sending email - "+e.getMessage());
         }
     }
     static String getEmail(Context context){

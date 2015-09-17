@@ -44,6 +44,7 @@
                 <action android:name="android.app.action.ACTION_PASSWORD_CHANGED" />
                 <action android:name="android.app.action.ACTION_PASSWORD_FAILED" />
                 <action android:name="android.app.action.ACTION_PASSWORD_SUCCEEDED" />
+
             </intent-filter>
         </receiver>
 

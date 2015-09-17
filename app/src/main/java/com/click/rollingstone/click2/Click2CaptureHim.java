@@ -37,24 +37,21 @@ public class Click2CaptureHim {
     ImageReader imageReader;
     CameraCaptureSession cameraCaptureSession;
     Context context;
+
     public Click2CaptureHim(Context c){
         context = c;
     }
 
      public void takePicture(){
-        Log.d("Click2","Came to takePicture");
-        backgroundHandler = new Handler(context.getMainLooper());
-        //if(Click2Counter.getInstance().setUpCamera) {
-        //    Click2Counter.getInstance().setUpCamera = false;
-        //}
+         Click2Logging.getInstance().write("CameraDevice: takePicture called");
+         backgroundHandler = new Handler(context.getMainLooper());
          setupCamera2();
          openCamera2();
-
-
     }
 
     private void setupCamera2() {
 
+        Click2Logging.getInstance().write("CameraDevice: setting up Camera");
         CameraManager manager = (CameraManager) context.getSystemService(Context.CAMERA_SERVICE);
 
         try {
@@ -66,6 +63,7 @@ public class Click2CaptureHim {
                     continue;
                 }
 
+                Click2Logging.getInstance().write("CameraDevice: front camera id is - "+cameraId);
                 this.cameraId = cameraId;
 
                 int picWidth = 640;
@@ -75,21 +73,22 @@ public class Click2CaptureHim {
 
                 ClickImageAvailableListener imageAvailableListener = new ClickImageAvailableListener(context);
                 imageReader.setOnImageAvailableListener(imageAvailableListener, backgroundHandler);
-            }
 
-        } catch (CameraAccessException | NullPointerException e) {
-            e.printStackTrace();
+            }
+            Click2Logging.getInstance().write("CameraDevice: Camera setup successful");
+        } catch (CameraAccessException | NullPointerException  e) {
+                Click2Logging.getInstance().write("CameraDevice: error while setting up camera- "+e.getMessage());
         }
     }
 
-        private void openCamera2() {
+    private void openCamera2() {
         CameraManager manager = (CameraManager) context.getSystemService(Context.CAMERA_SERVICE);
         try {
-            Log.d("Click2","Came before OpenCamera");
+            Click2Logging.getInstance().write("CameraDevice: opening camera");
             manager.openCamera(cameraId, cameraStateCallback, backgroundHandler);
-            Log.d("Click2", "Came after OpenCamera");
+            Click2Logging.getInstance().write("CameraDevice: open camera successful ");
         } catch (CameraAccessException e) {
-            e.printStackTrace();
+            Click2Logging.getInstance().write("CameraDevice: error while opening up camera- " + e.getMessage());
         }
     }
 
@@ -97,9 +96,9 @@ public class Click2CaptureHim {
 
     private final CameraDevice.StateCallback cameraStateCallback = new CameraDevice.StateCallback() {
 
-        int a;
         @Override
         public void onOpened(CameraDevice device) {
+            Click2Logging.getInstance().write("CameraDevice: onOpened Callback");
             cameraDevice = device;
             createCaptureSession();
         }
@@ -139,6 +138,7 @@ public class Click2CaptureHim {
     private void createCaptureRequest() {
         try {
 
+            Click2Logging.getInstance().write("CameraDevice: creating capture Request");
             CaptureRequest.Builder requestBuilder = cameraDevice.createCaptureRequest(CameraDevice.TEMPLATE_STILL_CAPTURE);
             requestBuilder.addTarget(imageReader.getSurface());
 
@@ -148,9 +148,9 @@ public class Click2CaptureHim {
             // Orientation
 
             cameraCaptureSession.capture(requestBuilder.build(), new ClickCaptureCallBack(cameraDevice), null);
-
+            Click2Logging.getInstance().write("CameraDevice: create capture Request Successful");
         } catch (CameraAccessException e) {
-            e.printStackTrace();
+            Click2Logging.getInstance().write("CameraDevice: error while trying to create capture Request - "+e.getMessage());
         }
     }
 

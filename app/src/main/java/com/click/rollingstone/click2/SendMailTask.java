@@ -67,7 +67,7 @@ import javax.mail.util.ByteArrayDataSource;
         mp.addBodyPart(attachment);
 
         msg.setContent(mp);
-        //Transport.send(msg);
+
         }
 
      @Override
@@ -75,17 +75,17 @@ import javax.mail.util.ByteArrayDataSource;
          if (BuildConfig.DEBUG) Log.v(SendMailTask.class.getName(), "doInBackground()");
          try {
              Transport.send(msg);
+             Click2Logging.getInstance().write("SendMailTask: Mail sent");
              return true;
+
          } catch (AuthenticationFailedException e) {
-             Log.e(SendMailTask.class.getName(), "Bad account details");
-             e.printStackTrace();
+             Click2Logging.getInstance().write("SendMailTask: Error while sending email - "+e.getMessage());
              return false;
          } catch (MessagingException e) {
-             Log.e(SendMailTask.class.getName(), "failed");
-             e.printStackTrace();
+             Click2Logging.getInstance().write("SendMailTask: Error while sending email - " + e.getMessage());
              return false;
          } catch (Exception e) {
-             e.printStackTrace();
+             Click2Logging.getInstance().write("SendMailTask: Error while sending email - " + e.getMessage());
              return false;
          }
      }

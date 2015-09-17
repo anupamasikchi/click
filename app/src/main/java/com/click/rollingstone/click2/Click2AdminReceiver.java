@@ -23,46 +23,25 @@ public class Click2AdminReceiver extends DeviceAdminReceiver {
     @Override
     public void onPasswordFailed(Context context, Intent intent) {
 
+        try {
+        Click2Logging.getInstance().write("On password failed event received");
         DevicePolicyManager mgr = (DevicePolicyManager) context.getSystemService(Context.DEVICE_POLICY_SERVICE);
-        int no = mgr.getCurrentFailedPasswordAttempts();
         if (Build.VERSION.SDK_INT < 21) {
+            Click2Logging.getInstance().write("SDK Version is less than 21");
             Intent intent1 = new Intent(context, CameraView.class);
-            // context.startActivity(new Intent(context, ClickTakePicture.class));
             intent1.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             context.startActivity(intent1);
         }
         else{
-            try {
-
-                    Click2CaptureHim captureHim = new Click2CaptureHim(context);
+            Click2Logging.getInstance().write("SDK Version is greater than or equal to 21");
+            Click2CaptureHim captureHim = new Click2CaptureHim(context);
                     captureHim.takePicture();
-
-            } catch (Exception e) {
-                Log.i("Click2", "Crashed due to" + e);
             }
+            Click2Logging.getInstance().write("On password failed event ends");
         }
-       /* Click2Counter.getInstance().i++;
-        int number = Click2Counter.getInstance().i;
-        //Toast.makeText(context,"Password was incorrect"+number,Toast.LENGTH_LONG).show();
-        super.onPasswordFailed(context, intent);
-        // call camera code here
-        Log.i("Click2", "Wrong Password was entered");
-
-            Click2Capture cc=new Click2Capture(context);
-            cc.CallCamera();
-        } else {
-            try {
-                if (number == 2) {
-
-                    Click2CaptureHim captureHim = new Click2CaptureHim(context);
-                    captureHim.takePicture();
-                    Click2Counter.getInstance().i = 0;
-                }
-
-            } catch (Exception e) {
-                Log.i("Click2", "Crashed due to" + e);
-            }
-        }*/
+        catch (Exception e) {
+            Click2Logging.getInstance().write("Exception while");
+        }
     }
 
 

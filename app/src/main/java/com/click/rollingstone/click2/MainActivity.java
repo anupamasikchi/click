@@ -49,10 +49,10 @@ Context context;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
+        Click2Logging.getInstance().write("App run started");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         context = getApplicationContext();
-    //SurfaceView sv=(SurfaceView)findViewById(R.id.surfaceView1);
         mDPM = (DevicePolicyManager)getSystemService(Context.DEVICE_POLICY_SERVICE);
         mAdminName = new ComponentName(getApplicationContext(),Click2AdminReceiver.class);
 
@@ -60,13 +60,8 @@ Context context;
         intent.putExtra(DevicePolicyManager.EXTRA_DEVICE_ADMIN,mAdminName);
 
         startActivity(intent);
-
-        /*HandlerThread thread = new HandlerThread("CameraPreview");
-        thread.start();
-        backgroundHandler = new Handler(thread.getLooper());
-        setupCamera2();
-        openCamera2();*/
-    }
+        Click2Logging.getInstance().write("Received permissions. Monitoring your device now");
+ }
 
 
 }

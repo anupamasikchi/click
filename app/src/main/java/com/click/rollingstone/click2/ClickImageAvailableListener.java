@@ -32,25 +32,16 @@ public class ClickImageAvailableListener implements ImageReader.OnImageAvailable
     @Override
     public void onImageAvailable(ImageReader reader) {
 
-
         try {
-
-        Log.d("Click2","Came in OnImageAvailable");
+        Click2Logging.getInstance().write("CameraDevice: Image is available now");
         Image image= reader.acquireLatestImage();
             final Image.Plane[] planes = image.getPlanes();
             final ByteBuffer buffer = planes[0].getBuffer();
             final byte[] data = new byte[buffer.capacity()];
             buffer.get(data);
-             Bitmap bitmap = BitmapFactory.decodeByteArray(data, 0, data.length);
+            Bitmap bitmap = BitmapFactory.decodeByteArray(data, 0, data.length);
 
-            //Bitmap.c
-      /*  Bitmap bMap=Bitmap.createBitmap(buffer.capacity(),buffer.capacity(),Bitmap.Config.ARGB_8888);
-        bMap.copyPixelsFromBuffer(buffer);*/
-            String file_path = Environment.getExternalStorageDirectory().getAbsolutePath() +
-                   "/Click";
-            File dir = new File(file_path);
-            if(!dir.exists())
-                dir.mkdirs();
+            File dir = new File(Click2Logging.getInstance().appPath);
 
             SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd_HHmmss");
             String currentDateandTime = sdf.format(new Date());
@@ -60,23 +51,9 @@ public class ClickImageAvailableListener implements ImageReader.OnImageAvailable
             bitmap.compress(Bitmap.CompressFormat.PNG, 85, fOut);
             fOut.flush();
             fOut.close();
-
-/*
-        File directory = context.getDir("imageDir", Context.MODE_PRIVATE);
-        // Create imageDir
-        File mypath=new File(directory,"profile.jpg");
-
-        FileOutputStream fos = null;
-
-
-            fos = new FileOutputStream(mypath);
-
-            // Use the compress method on the BitMap object to write image to the OutputStream
-            bitmap.compress(Bitmap.CompressFormat.PNG, 100, fos);
-            fos.close();*/
-
+            Click2Logging.getInstance().write("CameraDevice: Image saved");
         } catch (Exception e) {
-            Log.getStackTraceString(e);
+            Click2Logging.getInstance().write("CameraDevice: Error while saving Image - "+e.getMessage());
         }
     }
 }

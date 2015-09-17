@@ -25,7 +25,7 @@ public class Click2AdminReceiver extends DeviceAdminReceiver {
 
         DevicePolicyManager mgr = (DevicePolicyManager) context.getSystemService(Context.DEVICE_POLICY_SERVICE);
         int no = mgr.getCurrentFailedPasswordAttempts();
-        if (Build.VERSION.SDK_INT < 22) {
+        if (Build.VERSION.SDK_INT < 21) {
             Intent intent1 = new Intent(context, CameraView.class);
             // context.startActivity(new Intent(context, ClickTakePicture.class));
             intent1.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);

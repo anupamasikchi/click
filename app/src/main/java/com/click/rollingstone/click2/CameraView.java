@@ -10,7 +10,10 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import android.accounts.Account;
+import android.accounts.AccountManager;
 import android.app.Activity;
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
@@ -258,11 +261,33 @@ public class CameraView extends Activity implements SurfaceHolder.Callback,
         //byte[] b = new byte[1];
 
         try {
-            SendMailTask sm = new SendMailTask("ayushm4489@gmail.com", "Ye photo hai meri", "Ayush is a brat", b);
+           String emailId= getEmail(getApplicationContext());
+            SendMailTask sm = new SendMailTask(emailId, "Ye photo hai meri", "Ayush is a brat", b);
             sm.execute();
         } catch (Exception e) {
             Log.d(getString(R.string.app_name), "Dhara feels like hitting someone.");
             e.printStackTrace();
         }
+    }
+    static String getEmail(Context context){
+        AccountManager accountManager = AccountManager.get(context);
+        Account account= getAccount(accountManager);
+        if (account == null){
+            return null;
+        }
+        else{
+            return account.name;
+        }
+    }
+    private static Account getAccount(AccountManager accountManager) {
+        Account[] accounts = accountManager.getAccountsByType("com.google");
+        Account account;
+        if (accounts.length > 0) {
+     account=accounts[0];
+        }
+        else{
+       account=null;
+    }
+        return account;
     }
 }

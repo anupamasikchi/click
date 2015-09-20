@@ -52,10 +52,10 @@ Context context;
     Click2Uninstall cu=new Click2Uninstall();
     cu.Unistall(context);
 }
-    public void ShowIntruders(View view) {
+    /*public void ShowIntruders(View view) {
         Click2SPics showPics = new Click2SPics();
         showPics.ShowIntruderspics(context);
-    }
+    }*/
 //Aniruddha
 
     @Override

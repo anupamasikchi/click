@@ -8,6 +8,8 @@ import android.net.NetworkInfo;
 
 import java.util.List;
 
+import javax.xml.transform.Result;
+
 /**
  * Created by Aniruddha_Saundattik on 9/19/2015.
  */
@@ -24,15 +26,12 @@ public class MailManager extends BroadcastReceiver {
             LocalDB localDB = new LocalDB(context);
             List<Mail> mailList = localDB.getAllEmails();
             for (Mail mail : mailList){
-                Click2Logging.getInstance().write("MailManager: " + mail.get_filename());
+                Click2Logging.getInstance().write("MailManager: id - " + mail.get_id());
+                Click2Logging.getInstance().write("MailManager: filename - " + mail.get_filename());
                 SendMailTask sm = new SendMailTask(mail.get_filename());
+                localDB.deleteMail(mail);
+                sm.setApplicationContext(context);
                 sm.execute();
-                try {
-                    sm.wait();
-                    localDB.deleteMail(mail);
-                }catch (InterruptedException e){
-                    e.printStackTrace();
-                }
             }
         }
     }

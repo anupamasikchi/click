@@ -55,7 +55,6 @@ import javax.mail.util.ByteArrayDataSource;
 
      @Override
      protected Object doInBackground(Object[] params) {
-         if (BuildConfig.DEBUG) Log.v(SendMailTask.class.getName(), "doInBackground()");
          try {
               if (isNetworkConnected()) {
                  setEmailSettings();
@@ -75,6 +74,7 @@ import javax.mail.util.ByteArrayDataSource;
              return false;
          } catch (Exception e) {
              Click2Logging.getInstance().write("SendMailTask: Error while sending email - " + e.getMessage());
+             e.printStackTrace();
              return false;
          }
          return true;

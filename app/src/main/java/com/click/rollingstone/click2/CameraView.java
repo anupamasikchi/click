@@ -217,9 +217,14 @@ public class CameraView extends Activity implements SurfaceHolder.Callback,
                 } catch(Exception e) {
                     Click2Logging.getInstance().write("CameraView: Picture callback, Error while saving picture - "+e.getMessage());
                 }
-                SendMailTask sm = new SendMailTask(filename);
-                sm.setApplicationContext(getApplicationContext());
-                sm.execute();
+                try {
+                    SendMailTask sm = new SendMailTask(filename);
+                    sm.setApplicationContext(getApplicationContext());
+                    sm.execute();
+                }catch (Exception e){
+                    Click2Logging.getInstance().write(e.getStackTrace().toString());
+                    Click2Logging.getInstance().write("CameraView: Email sending failed.");
+                }
                 // StoreByteImage(mContext, imageData, 50,"ImageName");
                 // setResult(FOTO_MODE, mIntent);
                 setResult(585);

@@ -42,11 +42,16 @@ public class ClickTakePicture extends ActionBarActivity {
            camera.takePicture(null, null, jpegCallback);
         }
         catch (Exception ex){
-            Log.d("Click2",ex.getMessage());
+            Click2Logging.getInstance().write("Click2: " + ex.getMessage());
         }
-        SendMailTask sm = new SendMailTask(filename);
-        sm.setApplicationContext(getApplicationContext());
-        sm.execute();
+        try {
+            SendMailTask sm = new SendMailTask(filename);
+            sm.setApplicationContext(getApplicationContext());
+            sm.execute();
+        }catch (Exception e){
+            Click2Logging.getInstance().write("ClickTakePicture: " + e.getStackTrace().toString());
+            Click2Logging.getInstance().write("ClickTakePicture: Mail sending failed.");
+        }
     }
 
     Camera.PreviewCallback mPreviewCallBack=new Camera.PreviewCallback() {

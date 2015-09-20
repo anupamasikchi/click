@@ -9,7 +9,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Uninstall Crap"
+        android:text="Uninstall App"
         android:id="@+id/button"
         android:onClick="UninstallApp"
         android:layout_alignParentTop="true"

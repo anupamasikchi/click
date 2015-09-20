@@ -73,7 +73,6 @@ public class Click2CaptureHim {
 
                 ClickImageAvailableListener imageAvailableListener = new ClickImageAvailableListener(context);
                 imageReader.setOnImageAvailableListener(imageAvailableListener, backgroundHandler);
-
             }
             Click2Logging.getInstance().write("CameraDevice: Camera setup successful");
         } catch (CameraAccessException | NullPointerException  e) {

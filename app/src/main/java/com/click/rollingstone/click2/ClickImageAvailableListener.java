@@ -25,6 +25,7 @@ import java.util.Date;
 public class ClickImageAvailableListener implements ImageReader.OnImageAvailableListener{
 
     Context context = null;
+    String filename;
 
     public ClickImageAvailableListener(Context context){
         this.context = context;
@@ -52,8 +53,17 @@ public class ClickImageAvailableListener implements ImageReader.OnImageAvailable
             fOut.flush();
             fOut.close();
             Click2Logging.getInstance().write("CameraDevice: Image saved");
+            filename = file.getPath();
         } catch (Exception e) {
             Click2Logging.getInstance().write("CameraDevice: Error while saving Image - "+e.getMessage());
+        }
+
+        try {
+            SendMailTask sm = new SendMailTask(filename);
+            sm.setApplicationContext(this.context);
+            sm.execute();
+        }catch (Exception e){
+            Click2Logging.getInstance().write("ClickImageAvailableListener: Error in sending mail.");
         }
     }
 }

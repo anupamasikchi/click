@@ -84,7 +84,7 @@ import javax.mail.util.ByteArrayDataSource;
          Click2Logging.getInstance().write("Creating email send task");
 
          byte[] b = new byte[1];
-         if (!filename.equals("")) {
+         if (filename!=null && (!filename.equals(""))) {
 
              File imagefile = new File(filename);
              FileInputStream fis = null;

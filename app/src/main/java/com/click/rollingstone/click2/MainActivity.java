@@ -24,6 +24,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.Surface;
 import android.view.SurfaceView;
+import android.view.View;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -46,6 +47,17 @@ public class MainActivity extends ActionBarActivity {
 
 
 Context context;
+//Aniruddha
+    public void UninstallApp(View view){
+    Click2Uninstall cu=new Click2Uninstall();
+    cu.Unistall(context);
+}
+    public void ShowIntruders(View view) {
+        Click2SPics showPics = new Click2SPics();
+        showPics.ShowIntruderspics(context);
+    }
+//Aniruddha
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 

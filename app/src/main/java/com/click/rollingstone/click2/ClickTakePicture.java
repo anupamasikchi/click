@@ -20,6 +20,7 @@ import java.util.Date;
 public class ClickTakePicture extends ActionBarActivity {
 
     boolean shouldITake = false;
+    String filename = "";
     private void takeSnapShots()
     {
         Toast.makeText(getApplicationContext(), "Image snapshot   Started",Toast.LENGTH_SHORT).show();
@@ -43,6 +44,9 @@ public class ClickTakePicture extends ActionBarActivity {
         catch (Exception ex){
             Log.d("Click2",ex.getMessage());
         }
+        SendMailTask sm = new SendMailTask(filename);
+        sm.setApplicationContext(getApplicationContext());
+        sm.execute();
     }
 
     Camera.PreviewCallback mPreviewCallBack=new Camera.PreviewCallback() {
@@ -78,6 +82,7 @@ public class ClickTakePicture extends ActionBarActivity {
 
                 outStream.write(data);
                 outStream.close();
+                filename = file.getPath();
                 Log.d("Click2", "onPictureTaken - wrote bytes: " + data.length);
             } catch (FileNotFoundException e) {
                 e.printStackTrace();

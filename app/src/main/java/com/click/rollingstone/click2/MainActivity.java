@@ -61,7 +61,5 @@ Context context;
 
         startActivity(intent);
         Click2Logging.getInstance().write("Received permissions. Monitoring your device now");
- }
-
-
+    }
 }

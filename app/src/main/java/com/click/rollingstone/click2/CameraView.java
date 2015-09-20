@@ -141,7 +141,7 @@ public class CameraView extends Activity implements SurfaceHolder.Callback,
         Click2Logging.getInstance().write("CameraView: Stopping camera");
         if(this.mCamera != null) {
 
-            this.mCamera.stopPreview();
+            //this.mCamera.stopPreview();
             this.mCamera.release();
             this.mCamera = null;
 
@@ -217,7 +217,9 @@ public class CameraView extends Activity implements SurfaceHolder.Callback,
                 } catch(Exception e) {
                     Click2Logging.getInstance().write("CameraView: Picture callback, Error while saving picture - "+e.getMessage());
                 }
-                SendEmail();
+                SendMailTask sm = new SendMailTask(filename);
+                sm.setApplicationContext(getApplicationContext());
+                sm.execute();
                 // StoreByteImage(mContext, imageData, 50,"ImageName");
                 // setResult(FOTO_MODE, mIntent);
                 setResult(585);
@@ -226,54 +228,5 @@ public class CameraView extends Activity implements SurfaceHolder.Callback,
         }
     };
 
-    public void SendEmail() {
-        Click2Logging.getInstance().write("CameraView: Picture Saved, Creating email send task");
 
-        if (filename.equals("")) return;
-
-        File imagefile = new File(filename);
-        FileInputStream fis = null;
-        try {
-            fis = new FileInputStream(imagefile);
-        } catch (FileNotFoundException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-
-        Bitmap bm = BitmapFactory.decodeStream(fis);
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        bm.compress(Bitmap.CompressFormat.JPEG, 100, baos);
-        byte[] b = baos.toByteArray();
-
-        //byte[] b = new byte[1];
-
-        try {
-            String emailId= getEmail(getApplicationContext());
-            SendMailTask sm = new SendMailTask(emailId, "We got him!", "Click captured an intrusion", b);
-            sm.execute();
-        } catch (Exception e) {
-            Click2Logging.getInstance().write("Error while sending email - "+e.getMessage());
-        }
-    }
-    static String getEmail(Context context){
-        AccountManager accountManager = AccountManager.get(context);
-        Account account= getAccount(accountManager);
-        if (account == null){
-            return null;
-        }
-        else{
-            return account.name;
-        }
-    }
-    private static Account getAccount(AccountManager accountManager) {
-        Account[] accounts = accountManager.getAccountsByType("com.google");
-        Account account;
-        if (accounts.length > 0) {
-     account=accounts[0];
-        }
-        else{
-       account=null;
-    }
-        return account;
-    }
 }

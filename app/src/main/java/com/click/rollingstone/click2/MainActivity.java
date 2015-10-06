@@ -46,16 +46,14 @@ public class MainActivity extends ActionBarActivity {
     //}
 
 
-Context context;
-public void redirect2showpicsclass(View view){
-    startActivity(new Intent(MainActivity.this, Click2ShowPics.class));
-}
+    Context context;
 
     //Aniruddha
     public void UninstallApp(View view){
     Click2Uninstall cu=new Click2Uninstall();
     cu.Unistall(context);
-}
+    }
+
     public void F2DeletePics(View view){
         Click2DeletePics deletePics=new Click2DeletePics();
         deletePics.deletepictures(context);

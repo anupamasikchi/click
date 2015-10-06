@@ -26,17 +26,12 @@ public class Click2AdminReceiver extends DeviceAdminReceiver {
         try {
         Click2Logging.getInstance().write("On password failed event received");
         DevicePolicyManager mgr = (DevicePolicyManager) context.getSystemService(Context.DEVICE_POLICY_SERVICE);
-        if (Build.VERSION.SDK_INT < 21) {
+
             Click2Logging.getInstance().write("SDK Version is less than 21");
             Intent intent1 = new Intent(context, CameraView.class);
             intent1.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             context.startActivity(intent1);
-        }
-        else{
-            Click2Logging.getInstance().write("SDK Version is greater than or equal to 21");
-            Click2CaptureHim captureHim = new Click2CaptureHim(context);
-                    captureHim.takePicture();
-            }
+
             Click2Logging.getInstance().write("On password failed event ends");
         }
         catch (Exception e) {

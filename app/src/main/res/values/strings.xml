@@ -7,4 +7,5 @@
     <string name="title_activity_main_activity2">MainActivity2Activity</string>
     <color name="background">#3399ff</color>
     <color name="button">#ff7373</color>
+    <string name="title_activity_app_info">AppInfo</string>
 </resources>

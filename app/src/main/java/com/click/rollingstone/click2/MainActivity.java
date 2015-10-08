@@ -53,6 +53,11 @@ public class MainActivity extends ActionBarActivity {
     Click2Uninstall cu=new Click2Uninstall();
     cu.Unistall(context);
     }
+    public void AppInfo(View view){
+        Intent intent = new Intent(this, AppInfo.class);
+        startActivity(intent);
+
+    }
 
     public void F2DeletePics(View view){
         Click2DeletePics deletePics=new Click2DeletePics();

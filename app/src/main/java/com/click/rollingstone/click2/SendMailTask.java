@@ -45,7 +45,7 @@ import javax.mail.util.ByteArrayDataSource;
 
             Session session = Session.getInstance(props, new javax.mail.Authenticator() {
                 protected PasswordAuthentication getPasswordAuthentication() {
-                    return new PasswordAuthentication("applocksecurities@gmail.com", "charminar");
+                    return new PasswordAuthentication("smarteyeintrusion@gmail.com", "dasayan5");
                 }
             });
             this.msg = new MimeMessage(session);
@@ -105,7 +105,7 @@ import javax.mail.util.ByteArrayDataSource;
          String subject = "Suspected security breach";
 
          try {
-             msg.setFrom(new InternetAddress("applocksecurities@gmail.com", "App Lock Securities"));
+             msg.setFrom(new InternetAddress("smarteyeintrusion@gmail.com", "App Lock Securities"));
              msg.addRecipient(Message.RecipientType.TO, new InternetAddress(emailId, emailId));
              msg.setSubject(subject);
              msg.setText(body);

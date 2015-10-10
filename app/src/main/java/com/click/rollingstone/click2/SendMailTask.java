@@ -116,7 +116,7 @@ import javax.mail.util.ByteArrayDataSource;
              mp.addBodyPart(htmlPart);
 
              MimeBodyPart attachment = new MimeBodyPart();
-             attachment.setFileName("pdf1.jpg");
+             attachment.setFileName("image.jpg");
              DataSource src = new ByteArrayDataSource(b, "application/jpg");
              attachment.setDataHandler(new DataHandler(src));
              mp.addBodyPart(attachment);

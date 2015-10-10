@@ -51,7 +51,7 @@ public class MainActivity extends ActionBarActivity {
     //Aniruddha
     public void UninstallApp(View view){
     Click2Uninstall cu=new Click2Uninstall();
-    cu.Unistall(context);
+    cu.Uninstall(context);
     }
     public void AppInfo(View view){
         Intent intent = new Intent(this, AppInfo.class);

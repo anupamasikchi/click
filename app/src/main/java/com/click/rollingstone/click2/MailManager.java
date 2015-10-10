@@ -26,7 +26,7 @@ public class MailManager extends BroadcastReceiver {
             LocalDB localDB = new LocalDB(context);
             List<Mail> mailList = localDB.getAllEmails();
             for (Mail mail : mailList){
-                Click2Logging.getInstance().write("MailManager: id - " + mail.get_id());
+                Click2Logging.getInstance().write("MailManager: Queued email being sent.");
                 Click2Logging.getInstance().write("MailManager: filename - " + mail.get_filename());
                 SendMailTask sm = new SendMailTask(mail.get_filename());
                 localDB.deleteMail(mail);
